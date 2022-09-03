@@ -28,5 +28,8 @@ describe("Assessment", function () {
 
     // assertion 3
     await expect(udemyCourse).toHaveTextContaining("Udemy");
+    // assertion 4
+    const udemyURL = "https://www.udemy.com/topic/automation-testing/";
+    await expect(browser).toHaveUrl(udemyURL);
   });
 });
