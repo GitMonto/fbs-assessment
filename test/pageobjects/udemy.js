@@ -1,6 +1,6 @@
 class UdemyPage {
   get gSearch() {
-    return $("input[name='q']");
+    return $("input");
   }
 
   open() {
