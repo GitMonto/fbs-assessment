@@ -28,8 +28,18 @@ describe("Assessment", function () {
 
     // assertion 3
     await expect(udemyCourse).toHaveTextContaining("Udemy");
-    // assertion 4
+    // 4
     const udemyURL = "https://www.udemy.com/topic/automation-testing/";
     await expect(browser).toHaveUrl(udemyURL);
+  });
+  it("searches for 'BDD with Cucumber'", async function () {
+    // 5
+    const searchMessage = "BDD with Cucumber";
+    const uSearch = $("input[name='q']");
+    await uSearch.click();
+    await uSearch.keys(searchMessage);
+    await uSearch.keys("Enter");
+    // assertion 5
+    await expect(browser).toHaveUrlContaining("BDD+with+Cucumber");
   });
 });
