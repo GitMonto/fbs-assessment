@@ -42,4 +42,20 @@ describe("Assessment", function () {
     // assertion 5
     await expect(browser).toHaveUrlContaining("BDD+with+Cucumber");
   });
+  // Automation step 5 only works when number 6 is commented out
+  // Due to the reCaptcha 6 will fail but should be accurate
+  it("selects highest rated result", async function () {
+    // 6
+    await UdemyPage.udemySort.click();
+    const filter = "Highest Rated";
+    await UdemyPage.udemySort.selectByVisibleTest(filter);
+
+    const highestRated = $("#u263-popper-trigger--316");
+    await highestRated.click();
+    // assertion 6
+    const title = await browser.getTitle();
+    await expect(title).toBe(
+      "Learn to Create BDD Framework using Cucumber and Java"
+    );
+  });
 });
