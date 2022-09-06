@@ -9,17 +9,14 @@ describe("Assessment", function () {
     // assertion 1
     await expect(browser).toHaveTitleContaining("Google");
   });
-
   it("searches for test automation learning and displays correct results", async function () {
     // 2
     const searchMessage = "Test Automation Learning";
     await UdemyPage.gSearch.setValue(searchMessage);
     await UdemyPage.gSearch.keys("Enter");
-
     // assertion 2
     await expect(browser).toHaveUrlContaining("Test+Automation+Learning");
   });
-
   it("selects the correct Udemy course", async function () {
     // 3
     await UdemyPage.udemyCourse.click();
@@ -45,7 +42,6 @@ describe("Assessment", function () {
     await UdemyPage.udemySort.click();
     const filter = "Highest Rated";
     await UdemyPage.udemySort.selectByVisibleTest(filter);
-
     const highestRatedCourse = $("#u263-popper-trigger--316");
     await highestRatedCourse.click();
     // assertion 6
