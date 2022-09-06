@@ -2,12 +2,11 @@ import UdemyPage from "../pageobjects/udemy";
 
 describe("Assessment", function () {
   it("opens google and accepts cookies", async function () {
-    // 1. Go to google site
+    // 1
     await UdemyPage.open();
-    // reject cookies
-    const cookieBtn = $("div=Accept all");
-    await cookieBtn.click();
-    // assertion for 1
+    // accept cookies
+    await UdemyPage.gCookieBtn.click();
+    // assertion 1
     await expect(browser).toHaveTitleContaining("Google");
   });
 
@@ -23,11 +22,9 @@ describe("Assessment", function () {
 
   it("selects the correct Udemy course", async function () {
     // 3
-    const udemyCourse = $("*=Udemy");
-    await udemyCourse.click();
-
+    await UdemyPage.udemyCourse.click();
     // assertion 3
-    await expect(udemyCourse).toHaveTextContaining("Udemy");
+    await expect(UdemyPage.udemyCourse).toHaveTextContaining("Udemy");
     // 4
     const udemyURL = "https://www.udemy.com/topic/automation-testing/";
     await expect(browser).toHaveUrl(udemyURL);
@@ -35,10 +32,9 @@ describe("Assessment", function () {
   it("searches for 'BDD with Cucumber'", async function () {
     // 5
     const searchMessage = "BDD with Cucumber";
-    const uSearch = $("input[name='q']");
-    await uSearch.click();
-    await uSearch.keys(searchMessage);
-    await uSearch.keys("Enter");
+    await UdemyPage.udemySearch.click();
+    await UdemyPage.udemySearch.keys(searchMessage);
+    await UdemyPage.udemySearch.keys("Enter");
     // assertion 5
     await expect(browser).toHaveUrlContaining("BDD+with+Cucumber");
   });
