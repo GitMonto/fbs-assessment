@@ -46,8 +46,8 @@ describe("Assessment", function () {
     const filter = "Highest Rated";
     await UdemyPage.udemySort.selectByVisibleTest(filter);
 
-    const highestRated = $("#u263-popper-trigger--316");
-    await highestRated.click();
+    const highestRatedCourse = $("#u263-popper-trigger--316");
+    await highestRatedCourse.click();
     // assertion 6
     const title = await browser.getTitle();
     await expect(title).toBe(
